@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Open+Sans:ital,wght@0,300;1,300&family=Smooch+Sans:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+
+
+<script>
+    function Tastehinzufuegen(operation){
+        document.getElementById('resultArea').innerHTML += operation;
+    }
+function operationAusfuehren() {
+    let container= document.getElementById('resultArea');
+    let ergebnis = eval(container.innerHTML); /* berechnet(evaluiert) die zugewiesene Operation */
+    container.innerHTML = ergebnis +' Cawani lo ;)'; 
+   
+}
+function quadriren() {
+    let container2 = document.getElementById('resultArea');
+    let ergebnis2 = container2.innerHTML;
+    container2.innerHTML = ergebnis2 * ergebnis2;
+}
+function exponete() {
+       let container3 = document.getElementById('resultArea');
+    let ergebnis3 = container3.innerHTML;
+    container3.innerHTML = ergebnis3 * ergebnis3 * ergebnis3;
+}
+function Loeschen(){
+   /* let container4 = document.getElementById('resultArea');
+    container4.innerHTML = ''; // so wird alles gelöscht*/
+    let container= document.getElementById('resultArea');
+    if(container.innerHTML.endsWith(' '))/* wenn es mit leerzeichen endet, dann heißt dass
+    es sich von drei leerzeichen handelt, deswegen müssen drei Zeichen mit einem Tastedrueck glöscht werden. */
+     {
+    container.innerHTML = container.innerHTML.slice(0, -3);
+     } else
+      {
+container.innerHTML = container.innerHTML.slice(0, -1);/*immrer das letzte Zeichen wird gelöscht */
+     }
+}
+function allesLoeschen(){
+    let container4 = document.getElementById('resultArea');
+    container4.innerHTML = '';
+}
+</script>
+
+</head>
+<body>
+
+    <div id="resultArea">
+    </div>
+
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td Onclick= "allesLoeschen()">Completly Delete</td>
+        </tr>
+        <tr> 
+            <td onclick="quadriren()">X²</td>
+            <td onclick="exponete()">X³</td>
+            <td onclick="Tastehinzufuegen('%')">%</td>
+            <td onclick="Loeschen()" id="entfernen">DEL</td>
+        </tr>
+        <tr> <!-- Reihe-->
+            <td Onclick="Tastehinzufuegen(7)">7</td> <!-- Spalte und ist gleichzeitig eine Zelle-->
+            <td Onclick="Tastehinzufuegen(8)">8</td>
+            <td Onclick="Tastehinzufuegen(9)">9</td>
+            <td Onclick="Tastehinzufuegen(' / ')" class="highlight">/</td>
+        </tr>
+        <tr> 
+            <td Onclick="Tastehinzufuegen(4)">4</td>
+            <td Onclick="Tastehinzufuegen(5)">5</td>
+            <td Onclick="Tastehinzufuegen(6)">6</td>
+            <td Onclick="Tastehinzufuegen(' * ')" class="highlight">x</td>
+        </tr>
+        <tr>
+            <td Onclick="Tastehinzufuegen(1)">1</td>
+            <td Onclick="Tastehinzufuegen(2)">2</td>
+            <td Onclick="Tastehinzufuegen(3)">3</td>
+            <td Onclick="Tastehinzufuegen(' + ')" class="highlight">+</td>
+        </tr>
+        <tr>
+            <td Onclick="Tastehinzufuegen(0)">0</td>
+            <td Onclick="Tastehinzufuegen('.')">.</td>
+            <td onclick="operationAusfuehren()" id="result">=</td>
+            <td Onclick="Tastehinzufuegen(' - ')" class="highlight">-</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+
+
+
+<!--
+    css
+    td:hover ist wenn wir über die Zelle schweben 
+    und dadrin können wir eine andere Farbe implementieren,
+    damit man weiß, dass es fixiert worden ist. 
+
+    Coole Schriftarten kann man bei-> (google Fonts) finden
+-->
+<!--
+    html
+    div: ist ein Container und sir kann ein id haben
+    und auf diesem id kann man in css mit #NamevonId{} zugreifen 
+    und da mit Design basteln. Allerdings das darf man nur einziges MAl machen,
+    sonst muss class dadrin reinhgepackt werden, und die class in css mit .KlasseName{} 
+    aufrufen und Design verschönern.
+-->
+<!--
+    ALT-Taste gedrückt halten und alle Zeilen, wo man eine Sache in mehrenen Zeieln 
+    hinzufügen will, dann Operation durchführen(Löschen, hinzufügen, tippen,etc...).
+-->
